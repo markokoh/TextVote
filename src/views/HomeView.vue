@@ -13,6 +13,6 @@
 <style>
 	.votepage {
 		font-family: Arial, Helvetica, sans-serif;
-		padding: 20px;
+		padding: 0px 20px 20px 20px;
 	}
 </style>

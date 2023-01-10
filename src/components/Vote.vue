@@ -1,8 +1,9 @@
 <!-- @format -->
 
 <template>
-	<h1>Live Text Vote</h1>
+	<h1>Live Text Vote <button class="reset" @click="resetVote">reset vote</button></h1>
 	<h2>Vote Line: +1 (670) 366-2467</h2>
+	<div>Cast vote and see live update</div>
 	<div>
 		<div :style="{ width: markWidth }" class="voteLevel background-blue">
 			Mark ({{ parseFloat(markWidth) / 70 }})
@@ -19,8 +20,6 @@
 		</div>
 		<h3>Text "3" to vote for Steve</h3>
 	</div>
-
-	<button style="margin-top: 25px" @click="resetVote">reset vote</button>
 </template>
 
 <script setup>
@@ -52,18 +51,31 @@
 	});
 </script>
 
-<style>
+<style scoped>
 	.voteLevel {
 		color: white;
 		height: 35px;
 		min-width: 35px;
 		font-size: large;
-		margin: 50px 0px 20px 0px;
+		margin: 35px 0px 20px 0px;
 		padding: 20px;
 		font-weight: bold;
 		display: flex;
 		align-items: center;
 		justify-content: end;
 		border-radius: 5px;
+	}
+
+	.reset {
+		margin-left: 20px;
+		padding: 6px;
+		cursor: pointer;
+		border-radius: 5px;
+		background-color: transparent;
+	}
+
+	h1 {
+		display: flex;
+		align-items: center;
 	}
 </style>

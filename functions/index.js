@@ -17,12 +17,12 @@ const addVote = async (candidate) => {
 };
 
 // TEXT MESSAGES ARE STRINGS
-// USING 'PARSEFLOAT' TO CONVERT STRINGS (NUMBERS) TO NUMBER
+// USING 'PARSEFLOAT' TO CONVERT STRINGS (NUMBERS) TO NUMBER.
 const checkVoteValue = (message) => {
   const vote = parseFloat(message);
 
   // IF THE MESSAGE IS A NUMBER, BUT HIGHER THAN THE NUMBER OF CANDIDATES,
-  // A VOTE IS NOT CAST
+  // A VOTE IS NOT CAST.
   if (candidates.length < vote) {
     console.log("Value is greater than number of candidates. No vote cast");
     return;

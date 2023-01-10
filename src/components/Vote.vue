@@ -2,7 +2,7 @@
 
 <template>
 	<h1 class="align-center">Live Text Vote <button class="reset" @click="resetVote">reset vote</button></h1>
-	<h2>Vote Line: +1 (670) 366-2467</h2>
+	<h2>Vote Line: +1 (501) 466 4389</h2>
 	<div>Watch for live update when your vote is cast.</div>
 	<div>
 		<div class="align-end">
@@ -13,12 +13,12 @@
 		</div>
 		<h3>Text "1" to vote for Mark</h3>
 		<div class="align-end">
-			<div :style="{ width: johnWidth }" class="voteLevel background-green">
-				John ({{ parseFloat(johnWidth) / 70 }})
+			<div :style="{ width: joanWidth }" class="voteLevel background-green">
+				Joan ({{ parseFloat(joanWidth) / 70 }})
 			</div>
-			<img src="../assets/images/AfroFem.png" :width="johnImageWidth" alt="" />
+			<img src="../assets/images/AfroFem.png" :width="joanImageWidth" alt="" />
 		</div>
-		<h3>Text "2" to vote for John</h3>
+		<h3>Text "2" to vote for Joan</h3>
 
 		<div class="align-end">
 			<div :style="{ width: steveWidth }" class="voteLevel background-red">
@@ -40,30 +40,30 @@
 	};
 
 	const markWidth = ref("35px");
-	const johnWidth = ref("35px");
+	const joanWidth = ref("35px");
 	const steveWidth = ref("35px");
 
 	const markImageWidth = ref(150);
-	const johnImageWidth = ref(150);
+	const joanImageWidth = ref(150);
 	const steveImageWidth = ref(150);
 
 	const resetVote = async () => {
 		await setDoc(doc(db, "elections", "exampleVote"), {
 			Mark: 0,
-			John: 0,
+			Joan: 0,
 			Steve: 0,
 		});
 	};
 
 	onSnapshot(doc(db, "elections", "exampleVote"), (doc) => {
-		const { Mark, John, Steve } = doc.data();
+		const { Mark, Joan, Steve } = doc.data();
 		markWidth.value = increment(Mark, 70) + "px";
-		johnWidth.value = increment(John, 70) + "px";
+		joanWidth.value = increment(Joan, 70) + "px";
 		steveWidth.value = increment(Steve, 70) + "px";
 
-		markImageWidth.value = 150 + increment(Mark, 8);
-		johnImageWidth.value = 150 + increment(John, 8);
-		steveImageWidth.value = 150 + increment(John, 8);
+		markImageWidth.value = 150 + increment(Mark, 20);
+		joanImageWidth.value = 150 + increment(Joan, 20);
+		steveImageWidth.value = 150 + increment(Steve, 20);
 	});
 </script>
 

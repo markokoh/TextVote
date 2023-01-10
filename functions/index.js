@@ -1,10 +1,12 @@
+/** @format */
+
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 admin.initializeApp();
 const db = admin.firestore();
 const {FieldValue} = require("firebase-admin/firestore");
 
-const candidates = ["Mark", "John", "Steve"];
+const candidates = ["Mark", "Joan", "Steve"];
 
 const addVote = async (candidate) => {
   const candidateRef = db.collection("elections").doc("exampleVote");
@@ -33,16 +35,15 @@ const checkVoteValue = (message) => {
   }
 
   candidates.forEach((element, index) => {
-    if ((vote - 1) === index) {
+    if (vote - 1 === index) {
       console.log("Vote cast for", element);
       addVote(element);
     }
   });
 };
 
-
-exports.castVote = functions.https.onRequest((req) => {
+exports.castVote = functions.https.onRequest((req, res) => {
   const messageBody = req.body.Body;
   checkVoteValue(messageBody);
+  res.end();
 });
-

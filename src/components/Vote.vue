@@ -1,30 +1,40 @@
 <!-- @format -->
 
 <template>
-	<h1 class="align-center">Live Text Vote <button class="reset" @click="resetVote">reset vote</button></h1>
-	<h2>Vote Line: +1 (501) 466 4389</h2>
-	<div>Watch for live update when your vote is cast.</div>
+	<div class="header-container">
+		<!-- <h1 class="align-center">Live SMS Vote <button class="reset" @click="resetVote">reset vote</button></h1> -->
+		<h1>
+			SMS VOTE LINE +1 (530) SMS VOTE
+			<span class="large-font text-margin phone-no"> +1 (530) 767 8683</span>
+		</h1>
+
+		<div>
+			Watch for live update when your vote is cast.<button class="reset" @click="resetVote">
+				reset vote
+			</button>
+		</div>
+	</div>
 	<div>
-		<div class="align-end">
-			<div :style="{ width: markWidth }" class="voteLevel background-blue">
+		<div class="vote-element">
+			<div :style="{ width: markWidth }" class="vote-level background-blue">
 				Mark ({{ parseFloat(markWidth) / 70 }})
 			</div>
-			<img src="../assets/images/Guy.png" :width="markImageWidth" alt="" />
+			<img src="../assets/images/Guy.png" :width="markImageWidth" alt="Mark" />
 		</div>
 		<h3>Text "1" to vote for Mark</h3>
-		<div class="align-end">
-			<div :style="{ width: joanWidth }" class="voteLevel background-green">
+		<div class="vote-element">
+			<div :style="{ width: joanWidth }" class="vote-level background-green">
 				Joan ({{ parseFloat(joanWidth) / 70 }})
 			</div>
-			<img src="../assets/images/AfroFem.png" :width="joanImageWidth" alt="" />
+			<img src="../assets/images/AfroFem.png" :width="joanImageWidth" alt="Joan" />
 		</div>
 		<h3>Text "2" to vote for Joan</h3>
 
-		<div class="align-end">
-			<div :style="{ width: steveWidth }" class="voteLevel background-red">
+		<div class="vote-element">
+			<div :style="{ width: steveWidth }" class="vote-level background-red">
 				Steve ({{ parseFloat(steveWidth) / 70 }})
 			</div>
-			<img src="../assets/images/IndianMan.png" :width="steveImageWidth" alt="" />
+			<img src="../assets/images/YoungGuyGlasses.png" :width="steveImageWidth" alt="Steve" />
 		</div>
 		<h3>Text "3" to vote for Steve</h3>
 	</div>
@@ -61,14 +71,14 @@
 		joanWidth.value = increment(Joan, 70) + "px";
 		steveWidth.value = increment(Steve, 70) + "px";
 
-		markImageWidth.value = 150 + increment(Mark, 20);
-		joanImageWidth.value = 150 + increment(Joan, 20);
-		steveImageWidth.value = 150 + increment(Steve, 20);
+		markImageWidth.value = 150 + increment(Mark, 15);
+		joanImageWidth.value = 150 + increment(Joan, 15);
+		steveImageWidth.value = 150 + increment(Steve, 15);
 	});
 </script>
 
 <style scoped>
-	.voteLevel {
+	.vote-level {
 		color: white;
 		height: 35px;
 		min-width: 35px;
@@ -87,7 +97,8 @@
 		padding: 6px;
 		cursor: pointer;
 		border-radius: 5px;
-		background-color: transparent;
+		background-color: white;
+		border: none;
 	}
 
 	.align-center {
@@ -98,6 +109,37 @@
 	.align-end {
 		display: flex;
 		align-items: end;
-		height: 175px;
+	}
+
+	.vote-element {
+		display: flex;
+		align-items: end;
+		height: 170px;
+	}
+
+	.text-margin {
+		margin: 0px 20px 0px 20px;
+	}
+
+	.phone-no {
+		/* font-size: medium; */
+		font-weight: medium;
+		/* color: grey; */
+	}
+
+	.justify-center {
+		display: flex;
+		justify-content: center;
+	}
+
+	.header-container {
+		background-color: #dcdcdc;
+		padding: 15px;
+		border-radius: 10px;
+		margin-bottom: 35px;
+	}
+
+	h1 {
+		font-family: "Archivo Black", sans-serif;
 	}
 </style>

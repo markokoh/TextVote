@@ -3,7 +3,7 @@
 <template>
 	<h1>Live Text Vote <button class="reset" @click="resetVote">reset vote</button></h1>
 	<h2>Vote Line: +1 (670) 366-2467</h2>
-	<div>Cast vote and see live update</div>
+	<div>Watch for live update when your vote is cast.</div>
 	<div>
 		<div :style="{ width: markWidth }" class="voteLevel background-blue">
 			Mark ({{ parseFloat(markWidth) / 70 }})

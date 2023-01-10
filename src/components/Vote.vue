@@ -5,7 +5,7 @@
 		<!-- <h1 class="align-center">Live SMS Vote <button class="reset" @click="resetVote">reset vote</button></h1> -->
 		<h1>
 			SMS VOTE LINE <span class="text-margin nowrap">+1 (530) SMS VOTE </span>
-			<span class="text-margin nowrap"> +1 (530) 767 8683</span>
+			<span class="text-margin nowrap x-large-font"> +1 (530) 767 8683</span>
 		</h1>
 
 		<div>
@@ -118,7 +118,7 @@
 	}
 
 	.text-margin {
-		margin: 0px 20px 0px 20px;
+		margin: 0px 10px 0px 10px;
 	}
 
 	/* .phone-no {

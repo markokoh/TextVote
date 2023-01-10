@@ -4,8 +4,8 @@
 	<div class="header-container">
 		<!-- <h1 class="align-center">Live SMS Vote <button class="reset" @click="resetVote">reset vote</button></h1> -->
 		<h1>
-			SMS VOTE LINE <span class="nowrap">+1 (530) SMS VOTE </span>
-			<span class="large-font text-margin phone-no nowrap"> +1 (530) 767 8683</span>
+			SMS VOTE LINE <span class="text-margin nowrap">+1 (530) SMS VOTE </span>
+			<span class="text-margin nowrap"> +1 (530) 767 8683</span>
 		</h1>
 
 		<div>
@@ -121,9 +121,9 @@
 		margin: 0px 20px 0px 20px;
 	}
 
-	.phone-no {
+	/* .phone-no {
 		font-weight: medium;
-	}
+	} */
 
 	.justify-center {
 		display: flex;

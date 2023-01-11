@@ -7,6 +7,10 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+// IMPORTANT - IF YOU'RE DOING YOUR OWN VERSION OF THIS PROJECT,
+// SIGN-UP TO FIREBASE ANE REPLACE THESE CREDENTIALS WITH YOUR OWN.
+// INFO HERE: https://firebase.google.com/docs/web/setup
 const firebaseConfig = {
   apiKey: "AIzaSyCPN7clnC6xk8KmxVkT2-V6glDW1zspA4E",
   authDomain: "textvote-7a52e.firebaseapp.com",

@@ -22,13 +22,13 @@ const checkVoteValue = (message) => {
   const vote = parseFloat(message);
 
   // IF THE MESSAGE IS A NUMBER, BUT HIGHER THAN THE NUMBER OF CANDIDATES,
-  // A VOTE IS NOT CAST.
+  // NO VOTE IS CAST.
   if (candidates.length < vote) {
     console.log("Value is greater than number of candidates. No vote cast");
     return;
   }
 
-  // IF THE MESSAGE IS NOT A NUMBER, A VOTE IS NOT CAST
+  // IF THE MESSAGE IS NOT A NUMBER, NO VOTE IS CAST.
   if (isNaN(vote)) {
     console.log("Value is not a number - no vote cast");
     return;

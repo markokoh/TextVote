@@ -1,29 +1,24 @@
-# TextVote
+<!-- @format -->
 
-This template should help get you started developing with Vue 3 in Vite.
+Title: SMSVote
 
-## Recommended IDE Setup
+Description:
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+This open source application enables votes to be cast by SMS. It uses Firebase for the backend, SignalWire for SMS, and Vue.js for the front end. A Firebase cloud function ‘castVote’ , is triggered by a SignalWire ‘LaML’ web hook, when an SMS is received. A Cloud Firestore database is updated with each vote, and the ‘Vote.vue’ component listens for these updates. Candidates are represented by an avatar and UI element which increase in size in with each vote, so results update in the UI, in real time.
 
-## Customize configuration
+Video Demo
+https://firebasestorage.googleapis.com/v0/b/textvote-7a52e.appspot.com/o/SMS%20Vote%20Sceen%20Recording.mp4?alt=media&token=f2316b95-cce9-4e41-96ba-fbb006820143
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Demo Site
+https://jbmj7k-5173.preview.csb.app/
 
-## Project Setup
+Sandbox
+https://codesandbox.io/p/github/markokoh/SMSVote/main?file=%2Ffunctions%2Findex.js
 
-```sh
-npm install
-```
+If you wish to fork this project and make your own version, you will need a firebase account and a SignalWire account:
+https://signalwire.com/
+https://firebase.google.com/
 
-### Compile and Hot-Reload for Development
+The avatars are from https://blush.design/
 
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+Mark Okoh

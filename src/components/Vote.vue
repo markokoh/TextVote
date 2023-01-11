@@ -2,7 +2,6 @@
 
 <template>
 	<div class="header-container">
-		<!-- <h1 class="align-center">Live SMS Vote <button class="reset" @click="resetVote">reset vote</button></h1> -->
 		<h1>
 			SMS VOTE LINE <span class="text-margin nowrap">+1 (530) SMS VOTE </span>
 			<span class="text-margin nowrap x-large-font"> +1 (530) 767 8683</span>
@@ -57,6 +56,9 @@
 	const joanImageWidth = ref(150);
 	const steveImageWidth = ref(150);
 
+	// VOTES ARE STORED IN A CLOUD FIRESTORE DOCUMENT
+	// 'EXAMPLEVOTE', IN THE 'ELECTIONS' COLLECTION.
+	// INFO HERE: https://firebase.google.com/docs/firestore/data-model
 	const resetVote = async () => {
 		await setDoc(doc(db, "elections", "exampleVote"), {
 			Mark: 0,
@@ -65,6 +67,9 @@
 		});
 	};
 
+	// HERE THE APPICATION LISTENS FOR CHANGES IN THE 'EXAMPLEVOTE' DOC,
+	// (WHEN VOTES ARE RECEIVED) SO THE UI CAN BE UPDATED, IN REAL TIME.
+	// INFO HERE: https://firebase.google.com/docs/firestore/query-data/listen
 	onSnapshot(doc(db, "elections", "exampleVote"), (doc) => {
 		const { Mark, Joan, Steve } = doc.data();
 		markWidth.value = increment(Mark, 70) + "px";

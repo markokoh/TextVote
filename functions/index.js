@@ -16,8 +16,8 @@ const addVote = async (candidate) => {
   });
 };
 
-// TEXT MESSAGES ARE STRINGS
-// USING 'PARSEFLOAT' TO CONVERT STRINGS (NUMBERS) TO NUMBER.
+// TEXT MESSAGES ARE STRINGS S0 USING
+// 'PARSEFLOAT' TO CONVERT THEM TO NUMBERS.
 const checkVoteValue = (message) => {
   const vote = parseFloat(message);
 
@@ -41,6 +41,10 @@ const checkVoteValue = (message) => {
     }
   });
 };
+
+// 'CASTVOTE' CLOUD FUNCTION IS CALLED VIA A SIGNALWIRE
+// WEBHOOK, WHEN AN SMS IS RECEIVED ON THE NUMBER IT IS ASSOCIATED WITH.
+// INFO HERE: https://developer.signalwire.com/guides/how-to-configure-your-webhook/
 
 exports.castVote = functions.https.onRequest((req, res) => {
   const messageBody = req.body.Body;

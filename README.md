@@ -22,13 +22,13 @@ https://jbmj7k-5173.preview.csb.app/
 
 https://codesandbox.io/p/github/markokoh/SMSVote/main?file=%2Ffunctions%2Findex.js
 
-If you wish to fork this project and make your own version, you will need a firebase account and a SignalWire account:
+If you wish to fork this project and make your own version, you will need Firebase and SignalWire accounts:
 
 https://signalwire.com/
 
 https://firebase.google.com/
 
-The avatars are from
+The avatars are from here:
 
 https://blush.design/
 

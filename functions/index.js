@@ -9,37 +9,30 @@ const {FieldValue} = require("firebase-admin/firestore");
 const candidates = ["Mark", "Joan", "Steve"];
 
 const addVote = async (candidate) => {
-  const candidateRef = db.collection("elections").doc("exampleVote");
-
-  await candidateRef.update({
-    [candidate]: FieldValue.increment(1),
-  });
+  try {
+    const candidateRef = db.collection("elections").doc("exampleVote");
+    await candidateRef.update({
+      [candidate]: FieldValue.increment(1),
+    });
+  } catch (err) {
+    console.log("Error adding vote: ", err);
+  }
 };
 
-// TEXT MESSAGES ARE STRINGS S0 USING
-// 'PARSEFLOAT' TO CONVERT THEM TO NUMBERS.
+// 'PARSEFLOAT' TO CONVERT STRING (MESSAGE) TO NUMBER.
 const checkVoteValue = (message) => {
   const vote = parseFloat(message);
 
-  // IF THE MESSAGE IS A NUMBER, BUT HIGHER THAN THE NUMBER OF CANDIDATES,
-  // NO VOTE IS CAST.
-  if (candidates.length < vote) {
-    console.log("Value is greater than number of candidates. No vote cast");
+  // CHECK IF VOTE IS VALID
+  if (isNaN(vote) || vote < 1 || vote > candidates.length) {
+    console.log("Invalid vote - no vote cast");
     return;
   }
 
-  // IF THE MESSAGE IS NOT A NUMBER, NO VOTE IS CAST.
-  if (isNaN(vote)) {
-    console.log("Value is not a number - no vote cast");
-    return;
-  }
-
-  candidates.forEach((element, index) => {
-    if (vote - 1 === index) {
-      console.log("Vote cast for", element);
-      addVote(element);
-    }
-  });
+  // ADD VOTE TO CANDIDATE ACCORDING TO VOTE (MESSAGE) RECEIVED
+  const candidate = candidates[vote - 1];
+  console.log("Vote cast for", candidate);
+  addVote(candidate);
 };
 
 // 'CASTVOTE' CLOUD FUNCTION IS CALLED VIA A SIGNALWIRE
